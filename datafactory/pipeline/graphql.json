@@ -20,10 +20,39 @@
 					"headers": {
 						"X-Auth-Username": "casb.analytics@hsbc.com",
 						"X-Auth-Password": "5c30fivW468TTljk!"
+					},
+					"body": " "
+				}
+			},
+			{
+				"name": "Set access",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Get Tokens",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "access_tok",
+					"value": {
+						"value": "@activity('Get Tokens').output.access_token.value",
+						"type": "Expression"
 					}
 				}
 			}
 		],
+		"variables": {
+			"access_tok": {
+				"type": "String"
+			},
+			"refresh_tok": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
