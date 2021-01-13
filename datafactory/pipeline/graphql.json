@@ -39,7 +39,7 @@
 				"typeProperties": {
 					"variableName": "access_tok",
 					"value": {
-						"value": "@activity('Get Tokens').output.access_token.value",
+						"value": "@activity('Get Tokens').access_token.value",
 						"type": "Expression"
 					}
 				}
