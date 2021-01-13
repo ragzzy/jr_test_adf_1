@@ -1,0 +1,16 @@
+{
+	"name": "http_src",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ALS_HTTP_shndlpapi",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			}
+		}
+	}
+}
