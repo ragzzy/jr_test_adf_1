@@ -100,6 +100,16 @@
 						"type": "Expression"
 					},
 					"method": "POST",
+					"headers": {
+						"x-access-token": {
+							"value": "@activity('Get Tokens').output.access_token",
+							"type": "Expression"
+						},
+						"x-auth-token": {
+							"value": "@activity('Get Tokens').output.refresh_token",
+							"type": "Expression"
+						}
+					},
 					"body": {
 						"query": "query ODSSummaryPageQuery($queryRequest: [OmnibarPillContainerInput], $sortColumn: SortColumnInput, $sortOrder: SortOrderInput) { getScanOverview(scanFilter: {queryRequest: $queryRequest, sortOrder: $sortOrder, sortColumn: $sortColumn}) { description estimationSupported scanId scanConfigId scanMode scanName scanType scanPolicyType schedule status runDate readOnlyConfig numErrors numIncidents scanInstanceCount cspId jurisdictionId __typename }}",
 						"variables": {
