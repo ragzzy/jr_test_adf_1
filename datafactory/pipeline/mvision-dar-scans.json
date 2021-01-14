@@ -25,11 +25,11 @@
 				}
 			},
 			{
-				"name": "Get Scans",
+				"name": "Get Scan Details",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "Get Tokens",
+						"activity": "Get Scans",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -44,7 +44,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://www.myshn.net/neo/shndlpapi/v2/graphql",
+					"url": {
+						"value": "@pipeline().parameters.baseUrl",
+						"type": "Expression"
+					},
 					"method": "POST",
 					"headers": {
 						"x-access-token": {
@@ -71,8 +74,67 @@
 						}
 					}
 				}
+			},
+			{
+				"name": "Get Scans",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Get Tokens",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": {
+						"value": "@pipeline().parameters.baseUrl",
+						"type": "Expression"
+					},
+					"method": "POST",
+					"body": {
+						"query": "query ODSSummaryPageQuery($queryRequest: [OmnibarPillContainerInput], $sortColumn: SortColumnInput, $sortOrder: SortOrderInput) { getScanOverview(scanFilter: {queryRequest: $queryRequest, sortOrder: $sortOrder, sortColumn: $sortColumn}) { description estimationSupported scanId scanConfigId scanMode scanName scanType scanPolicyType schedule status runDate readOnlyConfig numErrors numIncidents scanInstanceCount cspId jurisdictionId __typename }}",
+						"variables": {
+							"queryRequest": [
+								{
+									"category": "Scan Type",
+									"categoryGroupTypeId": null,
+									"categoryId": "Scan_Policy_Type",
+									"operator": "not",
+									"categoryValue": [
+										{
+											"name": "Configuration Audit Phantom",
+											"id": "Configuration Audit Phantom",
+											"parentId": "scanPolicyType",
+											"hasFacet": true
+										}
+									],
+									"subcategoryValue": [],
+									"subcategory": null,
+									"subcategoryId": null,
+									"comparator": null,
+									"fixed": false
+								}
+							]
+						}
+					}
+				}
 			}
 		],
+		"parameters": {
+			"baseUrl": {
+				"type": "string",
+				"defaultValue": "https://www.myshn.net/neo/shndlpapi/v2/graphql"
+			}
+		},
 		"variables": {
 			"access_tok": {
 				"type": "String"
