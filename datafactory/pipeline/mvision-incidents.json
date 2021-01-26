@@ -25,7 +25,7 @@
 				}
 			},
 			{
-				"name": "Get Services",
+				"name": "Get Incidents",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
@@ -44,7 +44,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://www.myshn.net/neo/shndlpapi/v2/graphql",
+					"url": "https://www.myshn.net/neo/watchtower/ui/v1/73138/incident/search",
 					"method": "POST",
 					"headers": {
 						"x-access-token": {
@@ -56,7 +56,7 @@
 							"type": "Expression"
 						}
 					},
-					"body": ""
+					"body": "{\n\t\"query_request\": {\n\t\t\"search_query\": {\n\t\t\t\"type\": \"between_search_query\",\n\t\t\t\"field\": \"created_on_date\",\n\t\t\t\"lower_bound\": \"2021-01-24 00:00:00.000+00:00\",\n\t\t\t\"upper_bound\": 2021-01-25 00:00:00.000+00:00,\n\t\t},\n\t\t\"timezone\": \"UTC\",\n\t\t\"pagination\": {\n\t\t\t\"offset\": 0,\n\t\t\t\"limit\": 1000\n\t\t}\n\t},\n\t\"incident_types\": [\n\t\t0\n\t],\n\t\"filter_type\": \"Policy\",\n\t\"filter_application\": \"Violation\",\n\t\"columns\": [\n\t\t{\n\t\t\t\"field\": \"name\",\n\t\t\t\"selected\": True,\n\t\t\t\"index\": 0,\n\t\t\t\"headerName\": \"Policy Name\",\n\t\t\t\"mandatory\": False\n\t\t},\n\t\t{\n\t\t\t\"field\": \"status\",\n\t\t\t\"selected\": True,\n\t\t\t\"index\": 4,\n\t\t\t\"headerName\": \"Policy Status\",\n\t\t\t\"mandatory\": False\n\t\t},\n\t\t{\n\t\t\t\"field\": \"services\",\n\t\t\t\"selected\": True,\n\t\t\t\"index\": 5,\n\t\t\t\"headerName\": \"Associated Services\",\n\t\t\t\"mandatory\": False\n\t\t},\n\t\t{\n\t\t\t\"field\": \"deployment_method\",\n\t\t\t\"selected\": True,\n\t\t\t\"index\": 3,\n\t\t\t\"headerName\": \"Deployment\",\n\t\t\t\"mandatory\": False\n\t\t},\n\t\t{\n\t\t\t\"field\": \"total_unresolved\",\n\t\t\t\"selected\": True,\n\t\t\t\"index\": 2,\n\t\t\t\"headerName\": \"Total Unresolved\",\n\t\t\t\"mandatory\": False\n\t\t},\n\t\t{\n\t\t\t\"field\": \"total_incidents\",\n\t\t\t\"selected\": True,\n\t\t\t\"index\": 1,\n\t\t\t\"headerName\": \"Total Incidents\",\n\t\t\t\"mandatory\": False\n\t\t}\n\t]\n}"
 				}
 			}
 		],
