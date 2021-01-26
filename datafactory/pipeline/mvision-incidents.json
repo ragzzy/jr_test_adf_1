@@ -56,7 +56,70 @@
 							"type": "Expression"
 						}
 					},
-					"body": "{\n\t\"query_request\": {\n\t\t\"search_query\": {\n\t\t\t\"type\": \"between_search_query\",\n\t\t\t\"field\": \"created_on_date\",\n\t\t\t\"lower_bound\": \"2021-01-24T00:00:00.000+00:00\",\n\t\t\t\"upper_bound\": \"2021-01-25T00:00:00.000+00:00\",\n\t\t},\n\t\t\"timezone\": \"UTC\",\n\t\t\"pagination\": {\n\t\t\t\"offset\": 0,\n\t\t\t\"limit\": 1000\n\t\t}\n\t},\n\t\"incident_types\": [\n\t\t0\n\t],\n\t\"filter_type\": \"Policy\",\n\t\"filter_application\": \"Violation\",\n\t\"columns\": [\n\t\t{\n\t\t\t\"field\": \"name\",\n\t\t\t\"selected\": True,\n\t\t\t\"index\": 0,\n\t\t\t\"headerName\": \"Policy Name\",\n\t\t\t\"mandatory\": False\n\t\t},\n\t\t{\n\t\t\t\"field\": \"status\",\n\t\t\t\"selected\": True,\n\t\t\t\"index\": 4,\n\t\t\t\"headerName\": \"Policy Status\",\n\t\t\t\"mandatory\": False\n\t\t},\n\t\t{\n\t\t\t\"field\": \"services\",\n\t\t\t\"selected\": True,\n\t\t\t\"index\": 5,\n\t\t\t\"headerName\": \"Associated Services\",\n\t\t\t\"mandatory\": False\n\t\t},\n\t\t{\n\t\t\t\"field\": \"deployment_method\",\n\t\t\t\"selected\": True,\n\t\t\t\"index\": 3,\n\t\t\t\"headerName\": \"Deployment\",\n\t\t\t\"mandatory\": False\n\t\t},\n\t\t{\n\t\t\t\"field\": \"total_unresolved\",\n\t\t\t\"selected\": True,\n\t\t\t\"index\": 2,\n\t\t\t\"headerName\": \"Total Unresolved\",\n\t\t\t\"mandatory\": False\n\t\t},\n\t\t{\n\t\t\t\"field\": \"total_incidents\",\n\t\t\t\"selected\": True,\n\t\t\t\"index\": 1,\n\t\t\t\"headerName\": \"Total Incidents\",\n\t\t\t\"mandatory\": False\n\t\t}\n\t]\n}"
+					"body": {
+						"query_request": {
+							"search_query": {
+								"type": "between_search_query",
+								"field": "created_on_date",
+								"lower_bound": "2021-01-24T00:00:00.000+00:00",
+								"upper_bound": "2021-01-25T00:00:00.000+00:00"
+							},
+							"timezone": "UTC",
+							"pagination": {
+								"offset": 0,
+								"limit": 1000
+							}
+						},
+						"incident_types": [
+							0
+						],
+						"filter_type": "Policy",
+						"filter_application": "Violation",
+						"columns": [
+							{
+								"field": "name",
+								"selected": true,
+								"index": 0,
+								"headerName": "Policy Name",
+								"mandatory": false
+							},
+							{
+								"field": "status",
+								"selected": true,
+								"index": 4,
+								"headerName": "Policy Status",
+								"mandatory": false
+							},
+							{
+								"field": "services",
+								"selected": true,
+								"index": 5,
+								"headerName": "Associated Services",
+								"mandatory": false
+							},
+							{
+								"field": "deployment_method",
+								"selected": true,
+								"index": 3,
+								"headerName": "Deployment",
+								"mandatory": false
+							},
+							{
+								"field": "total_unresolved",
+								"selected": true,
+								"index": 2,
+								"headerName": "Total Unresolved",
+								"mandatory": false
+							},
+							{
+								"field": "total_incidents",
+								"selected": true,
+								"index": 1,
+								"headerName": "Total Incidents",
+								"mandatory": false
+							}
+						]
+					}
 				}
 			}
 		],
