@@ -15,11 +15,29 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "http://dummy.restapiexample.com/api/v1/employee/1",
+					"url": {
+						"value": "@concat(variables('baseUrl'), string(1))",
+						"type": "Expression"
+					},
 					"method": "GET"
 				}
 			}
 		],
+		"variables": {
+			"currentPage": {
+				"type": "String"
+			},
+			"baseUrl": {
+				"type": "String",
+				"defaultValue": "https://api.instantwebtools.net/v1/passenger?size=100&page="
+			},
+			"totalPage": {
+				"type": "String"
+			},
+			"hasNextPage": {
+				"type": "Boolean"
+			}
+		},
 		"annotations": []
 	}
 }
