@@ -7,12 +7,12 @@
 		"typeProperties": {
 			"accountName": "jrbatchacct01",
 			"batchUri": "https://jrbatchacct01.northeurope.batch.azure.com",
-			"poolName": "pool01",
+			"poolName": "pool02-ubuntu",
 			"linkedServiceName": {
 				"referenceName": "LS_JR_Batch_Blob",
 				"type": "LinkedServiceReference"
 			},
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkpSLVRFU1QtQURGLUdJVF81ZGQ0MzMzNC1lNTRiLTQ4MjAtYTc0Yy1jN2Q5ZDQ5MjJmMzkiDQp9"
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkpSLVRFU1QtQURGLUdJVF8zNDg0M2Y1NS05N2Y3LTQyYTctODg3Ni03NWE5ODQ2ZWUwYWEiDQp9"
 		}
 	}
 }
